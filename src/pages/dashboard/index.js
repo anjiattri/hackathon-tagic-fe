@@ -3,24 +3,24 @@ import { Container, Typography, Box } from "@mui/material";
 import Header from "../../components/header";
 
 const Dashboard = () => {
-  const [points, setPoints] = useState(0);
+  const [points, setPoints] = useState(20);
 
-  useEffect(() => {
-    const email = localStorage.getItem("email");
-    const userPoints = localStorage.getItem(email);
-    setPoints(userPoints);
-    const fetchProfile = async () => {
-      const response = await fetch(`/api/profile?email=${email}`);
+  // useEffect(() => {
+  //   const email = localStorage.getItem("email");
+  //   const userPoints = localStorage.getItem(email);
+  //   setPoints(userPoints);
+  //   const fetchProfile = async () => {
+  //     const response = await fetch(`/api/profile?email=${email}`);
 
-      const result = await response.json();
-      if (response.ok) {
-        setPoints(result.profile.points);
-      }
-    };
-    localStorage.setItem(email, points);
+  //     const result = await response.json();
+  //     if (response.ok) {
+  //       setPoints(result.profile.points);
+  //     }
+  //   };
+  //   // localStorage.setItem(email, points);
 
-    fetchProfile();
-  }, []);
+  //   fetchProfile();
+  // }, []);
 
   return (
     <>

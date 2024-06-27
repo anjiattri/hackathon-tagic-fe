@@ -25,31 +25,25 @@ const Login = () => {
     // Store email and password in local storage (not secure for production)
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
-
-    // Call the API to update points
-    const response = await fetch("/api/updatePoints", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    });
-    const result = await response.json();
-    console.log("result", result);
-    localStorage.setItem(email, result?.profile?.points || 0);
-
-    if (response.ok) {
-      // Redirect to the dashboard page if authentication is successful
-      router.push("/dashboard");
-    } else {
-      // Handle error (e.g., user not found)
-      console.error(result.message);
-    }
+    router.push("/dashboard");
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Box
+        component="main"
+        sx={{
+          backgroundImage:
+            'url("https://wallpaperaccess.com/full/2268597.jpg")',
+          // backgroundSize: "100% 100%", // Stretch to cover entire container
+          backgroundRepeat: "no-repeat",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          height: "100vh", // Adjust height as needed
+          // objectFit: "cover",
+        }}
+      >
         <CssBaseline />
         <Box
           sx={{
@@ -57,6 +51,9 @@ const Login = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            backgroundColor: "rgba(255, 255, 255, 0.7)", // Add a semi-transparent white background for better readability
+            padding: "20px",
+            borderRadius: "10px",
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
@@ -105,7 +102,7 @@ const Login = () => {
             </Button>
           </Box>
         </Box>
-      </Container>
+      </Box>
     </ThemeProvider>
   );
 };

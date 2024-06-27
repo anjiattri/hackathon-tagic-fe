@@ -12,7 +12,7 @@ import { Favorite as FavoriteIcon } from "@mui/icons-material";
 
 const Header = () => {
   const router = useRouter();
-  const [points, setPoints] = useState(0);
+  const [points, setPoints] = useState(20);
   const handleLogout = () => {
     // Clear local storage
     localStorage.removeItem("email");
@@ -21,13 +21,6 @@ const Header = () => {
     // Redirect to login page
     router.push("/login");
   };
-
-  // Fetch points from local storage
-
-  useEffect(() => {
-    const points = localStorage.getItem("points") || 0;
-    setPoints(points);
-  }, []);
 
   return (
     <AppBar position="static">

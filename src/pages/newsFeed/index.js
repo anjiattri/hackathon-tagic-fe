@@ -11,6 +11,7 @@ import {
   Stack,
 } from "@mui/material";
 import Header from "../../components/header";
+import Carousel from "@/components/crousel";
 
 const categories = ["Science", "Sports", "Business"];
 
@@ -125,6 +126,7 @@ const NewsFeed = () => {
               </Grid>
             ))}
           </Grid>
+          <Carousel />
         </Box>
       </Container>
     </>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -12,7 +12,7 @@ import { Favorite as FavoriteIcon } from "@mui/icons-material";
 
 const Header = () => {
   const router = useRouter();
-
+  const [points, setPoints] = useState(0);
   const handleLogout = () => {
     // Clear local storage
     localStorage.removeItem("email");
@@ -23,7 +23,11 @@ const Header = () => {
   };
 
   // Fetch points from local storage
-  const points = localStorage.getItem("points") || 0;
+
+  useEffect(() => {
+    const points = localStorage.getItem("points") || 0;
+    setPoints(points);
+  }, []);
 
   return (
     <AppBar position="static">

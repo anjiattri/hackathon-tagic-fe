@@ -9,15 +9,13 @@ const MyApp = ({ Component, pageProps }) => {
     const email = localStorage.getItem("email");
     const password = localStorage.getItem("password");
 
-    // If not authenticated, redirect to login page
-    if (!email || !password) {
-      if (router.pathname !== "/login") {
-        router.push("/login");
-      }
-    } else {
-      if (router.pathname === "/login") {
-        router.push("/dashboard");
-      }
+    // Redirect to login page if not authenticated
+    if (!email || (!password && router.pathname !== "/login")) {
+      router.push("/login");
+    }
+    // Redirect to dashboard if authenticated and on login page
+    else if (email && password && router.pathname === "/login") {
+      router.push("/dashboard");
     }
   }, [router]);
 

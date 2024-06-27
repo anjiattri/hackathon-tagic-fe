@@ -1,6 +1,14 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Box,
+  IconButton,
+} from "@mui/material";
 import { useRouter } from "next/router";
+import { Favorite as FavoriteIcon } from "@mui/icons-material";
 
 const Header = () => {
   const router = useRouter();
@@ -14,15 +22,26 @@ const Header = () => {
     router.push("/login");
   };
 
+  // Fetch points from local storage
+  const points = localStorage.getItem("points") || 0;
+
   return (
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Dashboard
         </Typography>
-        <Button color="inherit" onClick={handleLogout}>
-          Logout
-        </Button>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <IconButton color="inherit" aria-label="points" disabled>
+            <FavoriteIcon />
+          </IconButton>
+          <Typography variant="body1" sx={{ mr: 2 }}>
+            {points}
+          </Typography>
+          <Button color="inherit" onClick={handleLogout}>
+            Logout
+          </Button>
+        </Box>
       </Toolbar>
     </AppBar>
   );

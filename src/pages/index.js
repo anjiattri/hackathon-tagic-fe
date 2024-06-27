@@ -5,8 +5,17 @@ const Home = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // Redirect to login page if trying to access the home page
-    router.push("/login");
+    const email = localStorage.getItem("email");
+    const password = localStorage.getItem("password");
+
+    // Redirect to login page if not authenticated
+    if (!email || !password) {
+      router.push("/login");
+    }
+    // Redirect to dashboard page if authenticated
+    else {
+      router.push("/dashboard");
+    }
   }, [router]);
 
   return null;

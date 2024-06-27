@@ -22,10 +22,11 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Implement your authentication logic here.
-    // For demonstration purposes, let's assume the authentication is successful.
+    // Store email and password in local storage (not secure for production)
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
 
-    // If authentication is successful, redirect to the dashboard page.
+    // Redirect to the dashboard page
     router.push("/dashboard");
   };
 

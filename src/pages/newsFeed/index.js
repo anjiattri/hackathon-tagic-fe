@@ -18,7 +18,7 @@ const NewsFeed = () => {
 
   useEffect(() => {
     const fetchNews = async () => {
-      const url = `https://newsapi.org/v2/everything?q=tesla&from=2024-05-27&sortBy=publishedAt&apiKey=0c5a7a31be2b4c4eaecf4ca22d29fdb1`;
+      const url = `https://newsapi.org/v2/everything?q=tesla&from=2024-05-27&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;
       const response = await fetch(url);
       const result = await response.json();
       console.log("Result", result);

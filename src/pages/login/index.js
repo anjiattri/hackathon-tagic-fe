@@ -25,31 +25,12 @@ const Login = () => {
     // Store email and password in local storage (not secure for production)
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
-
-    // Call the API to update points
-    const response = await fetch("/api/updatePoints", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    });
-    const result = await response.json();
-    console.log("result", result);
-    localStorage.setItem(email, result?.profile?.points || 0);
-
-    if (response.ok) {
-      // Redirect to the dashboard page if authentication is successful
-      router.push("/dashboard");
-    } else {
-      // Handle error (e.g., user not found)
-      console.error(result.message);
-    }
+    router.push("/dashboard");
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <Container
+      <Box
         component="main"
         sx={{
           backgroundImage:
@@ -121,7 +102,7 @@ const Login = () => {
             </Button>
           </Box>
         </Box>
-      </Container>
+      </Box>
     </ThemeProvider>
   );
 };

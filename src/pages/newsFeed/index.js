@@ -7,54 +7,105 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Pagination,
+  Chip,
+  Stack,
 } from "@mui/material";
 import Header from "../../components/header";
 
+const categories = ["Science", "Sports", "Business"];
+
 const NewsFeed = () => {
-  const [articles, setArticles] = useState([]);
-  const [page, setPage] = useState(1);
-  const articlesPerPage = 5;
+  const [news, setNews] = useState([]);
+  const [article, setArticle] = useState([]);
+
+  const [selectedCategory, setSelectedCategory] = useState("Science");
 
   useEffect(() => {
     const fetchNews = async () => {
-      const url = `https://newsapi.org/v2/everything?q=tesla&from=2024-05-27&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;
-      const response = await fetch(url);
-      const result = await response.json();
-      console.log("Result", result);
-      if (result.articles) {
-        setArticles(result.articles);
-      }
+      // Use the local API if needed, but currently using dummy data
+      // const url = "http://localhost:3000/news";
+      // const response = await fetch(url, {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({ data: selectedCategory }),
+      // });
+      // const result = await response.json();
+      // console.log("Result", result);
+
+      let dummy = [
+        {
+          source: {
+            id: "the-times-of-india",
+            name: "The Times of India",
+          },
+          author: "Shivendra Kumar",
+          title:
+            "ITC, Bharti Airtel’s weight may go up in Nifty rejig. $95 million passive inflows expected - The Economic Times",
+          description:
+            "ITC and Bharti Airtels weights in Nifty is expected to go up in the quarterly rejig which gets into effect on Thursday, triggering combined inflows of $95 million according to estimates by Nuvama.",
+          url: "https://economictimes.indiatimes.com/markets/stocks/news/itc-bharti-airtels-weight-may-go-up-in-nifty-rejig-95-million-passive-inflows-expected/articleshow/111283585.cms",
+          urlToImage:
+            "https://img.etimg.com/thumb/msid-111283577,width-1200,height-630,imgsize-14900,overlay-etmarkets/photo.jpg",
+          publishedAt: "2024-06-26T09:29:58Z",
+          content:
+            "ITC and Bharti Airtels weights in Nifty is expected to go up in the quarterly rejig which gets into effect on Thursday, triggering combined inflows of $95 million according to estimates by Nuvama. In… [+2026 chars]",
+        },
+        {
+          source: {
+            id: null,
+            name: "CNBCTV18",
+          },
+          author: "https://www.cnbctv18.com",
+          title:
+            "InCred forecasts Indian steel spreads will slip in the June quarter, sees boost for pellet makers - CNBCTV18",
+          description:
+            "InCred predicted pellet makers stocks to surge, listing NMDC as its top pick. The firm has given a buy rating to the stocks of the company, which is also India's largest iron ore producer.",
+          url: "https://www.cnbctv18.com/market/incred-forecasts-indian-steel-spreads-will-slip-in-june-quarter-sees-boost-for-pellet-makers-19433906.htm",
+          urlToImage:
+            "https://images.cnbctv18.com/uploads/2023/04/earnings-shutterstock.jpg?im=FitAndFill,width=500,height=300",
+          publishedAt: "2024-06-26T08:48:01Z",
+          content:
+            "Analyst firm InCred has forecast a further decline in the Indian domestic steel spreads during the first quarter of FY25 in comparison to the year-ago period. InCred said the profit after tax (PAT) f… [+1541 chars]",
+        },
+      ];
+
+      console.log("Dummy Data", dummy);
+      setNews(dummy);
     };
     fetchNews();
-  }, []);
-
-  const handlePageChange = (event, value) => {
-    setPage(value);
-  };
-
-  const indexOfLastArticle = page * articlesPerPage;
-  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
-  const currentArticles = articles.slice(
-    indexOfFirstArticle,
-    indexOfLastArticle
-  );
+  }, [selectedCategory]);
 
   return (
     <>
       <Header />
       <Container component="main" maxWidth="lg">
-        <Box sx={{ marginTop: 8 }}>
+        <Stack direction="row" spacing={2} sx={{ marginTop: 2 }}>
+          {categories.map((category) => (
+            <Chip
+              key={category}
+              label={category}
+              color={selectedCategory === category ? "primary" : "default"}
+              onClick={() => setSelectedCategory(category)}
+              sx={{ fontSize: "1rem", fontWeight: "bold" }}
+            />
+          ))}
+        </Stack>
+        <Box sx={{ marginTop: 4 }}>
           <Grid container spacing={4}>
-            {currentArticles.map((article, index) => (
-              <Grid item xs={12} key={index}>
-                <Card sx={{ display: "flex" }}>
-                  <CardMedia
-                    component="img"
-                    sx={{ width: 200, objectFit: "cover" }}
-                    image={article.urlToImage}
-                    alt={article.title}
-                  />
+            {console.log("News Data", news)}
+            {news.map((article, index) => (
+              <Grid item key={index} xs={12} sm={6} md={4}>
+                <Card>
+                  {article.urlToImage && (
+                    <CardMedia
+                      component="img"
+                      height="200"
+                      image={article.urlToImage}
+                      alt={article.title}
+                    />
+                  )}
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                       {article.title}
@@ -67,15 +118,6 @@ const NewsFeed = () => {
               </Grid>
             ))}
           </Grid>
-          <Box sx={{ mt: 4, display: "flex", justifyContent: "center" }}>
-            <Pagination
-              count={Math.ceil(articles.length / articlesPerPage)}
-              page={page}
-              onChange={handlePageChange}
-              variant="outlined"
-              shape="rounded"
-            />
-          </Box>
         </Box>
       </Container>
     </>

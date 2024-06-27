@@ -28,12 +28,14 @@ const MyApp = ({ Component, pageProps }) => {
         sx={{
           backgroundImage:
             'url("https://wallpaperaccess.com/full/2268597.jpg")',
+          backgroundAttachment: "fixed",
 
-          backgroundRepeat: "no-repeat",
+          // background: "linear-gradient(to right bottom, #430089, #82ffa1)",
+          // backgroundRepeat: "no-repeat",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          height: "100vh",
+          height: "100%",
         }}
       >
         <Component {...pageProps} />

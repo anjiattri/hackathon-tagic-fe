@@ -9,15 +9,22 @@ import {
   CardMedia,
   Chip,
   Stack,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  Button,
 } from "@mui/material";
 import Header from "../../components/header";
 import Carousel from "@/components/crousel";
 
-const categories = ["Science", "Sports", "Business"];
+const categories = ["Science", "Sports", "Business", "Travel"];
 
 const NewsFeed = () => {
   const [news, setNews] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("Science");
+  const [nudge, setNudge] = useState({ open: false, message: "" });
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -75,6 +82,32 @@ const NewsFeed = () => {
     };
     fetchNews();
   }, [selectedCategory]);
+  useEffect(() => {
+    debugger;
+    const nudges = {
+      Science: "Are you interested in the latest scientific discoveries?",
+      Sports: "Planning to watch any sports events soon?",
+      Business: "Want to stay updated on the latest business trends?",
+      Travel: "Are you planning to travel soon?",
+    };
+
+    const selectedCategories =
+      JSON.parse(localStorage.getItem("selectedCategories")) || [];
+
+    // if (!selectedCategories.includes(selectedCategory)) {
+    selectedCategories.push(selectedCategory);
+    localStorage.setItem(
+      "selectedCategories",
+      JSON.stringify(selectedCategories)
+    );
+    setNudge({ open: true, message: nudges[selectedCategory] });
+    // }
+  }, [selectedCategory]);
+
+  const handleNudgeResponse = (response) => {
+    console.log(`User responded with: ${response}`);
+    setNudge({ ...nudge, open: false });
+  };
 
   return (
     <>
@@ -102,7 +135,6 @@ const NewsFeed = () => {
         </Stack>
         <Box sx={{ marginTop: 4 }}>
           <Grid container spacing={4}>
-            {console.log("News Data", news)}
             {news.map((article, index) => (
               <Grid item key={index} xs={12} sm={6} md={4}>
                 <Card>
@@ -128,6 +160,31 @@ const NewsFeed = () => {
           </Grid>
           <Carousel />
         </Box>
+        <Dialog
+          open={nudge.open}
+          onClose={() => handleNudgeResponse("No")}
+          aria-labelledby="nudge-dialog-title"
+          aria-describedby="nudge-dialog-description"
+        >
+          <DialogTitle id="nudge-dialog-title">Quick Question</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="nudge-dialog-description">
+              {nudge.message}
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => handleNudgeResponse("No")} color="primary">
+              No
+            </Button>
+            <Button
+              onClick={() => handleNudgeResponse("Yes")}
+              color="primary"
+              autoFocus
+            >
+              Yes
+            </Button>
+          </DialogActions>
+        </Dialog>
       </Container>
     </>
   );

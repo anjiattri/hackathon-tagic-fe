@@ -84,9 +84,18 @@ const NewsFeed = () => {
             <Chip
               key={category}
               label={category}
-              color={selectedCategory === category ? "primary" : "default"}
               onClick={() => setSelectedCategory(category)}
-              sx={{ fontSize: "1rem", fontWeight: "bold" }}
+              sx={{
+                fontSize: "1rem",
+                fontWeight: "bold",
+                backgroundColor:
+                  selectedCategory === category ? "black" : "white",
+                color: selectedCategory === category ? "white" : "black",
+                "&:hover": {
+                  backgroundColor:
+                    selectedCategory === category ? "darkgray" : "lightgray",
+                },
+              }}
             />
           ))}
         </Stack>

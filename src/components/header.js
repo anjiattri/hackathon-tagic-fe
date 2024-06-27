@@ -13,6 +13,7 @@ import { Favorite as FavoriteIcon } from "@mui/icons-material";
 const Header = () => {
   const router = useRouter();
   const [points, setPoints] = useState(20);
+
   const handleLogout = () => {
     // Clear local storage
     localStorage.removeItem("email");
@@ -23,11 +24,16 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      sx={{
+        background: "linear-gradient(to right, black, gray)",
+      }}
+    >
       <Toolbar>
         <Typography
           variant="h6"
-          sx={{ flexGrow: 1, cursor: "pointer" }}
+          sx={{ flexGrow: 1, cursor: "pointer", color: "white" }}
           onClick={() => {
             router.push("/dashboard");
           }}
@@ -37,7 +43,7 @@ const Header = () => {
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Typography
             variant="body1"
-            sx={{ mr: 2, cursor: "pointer" }}
+            sx={{ mr: 2, cursor: "pointer", color: "white" }}
             onClick={() => {
               router.push("/newsFeed");
             }}
@@ -47,7 +53,7 @@ const Header = () => {
           <IconButton color="inherit" aria-label="points" disabled>
             <FavoriteIcon />
           </IconButton>
-          <Typography variant="body1" sx={{ mr: 2 }}>
+          <Typography variant="body1" sx={{ mr: 2, color: "white" }}>
             {points}
           </Typography>
           <Button color="inherit" onClick={handleLogout}>

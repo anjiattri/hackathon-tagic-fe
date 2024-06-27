@@ -16,8 +16,6 @@ const categories = ["Science", "Sports", "Business"];
 
 const NewsFeed = () => {
   const [news, setNews] = useState([]);
-  const [article, setArticle] = useState([]);
-
   const [selectedCategory, setSelectedCategory] = useState("Science");
 
   useEffect(() => {

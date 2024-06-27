@@ -33,8 +33,8 @@ const Login = () => {
       <Box
         component="main"
         sx={{
-          backgroundImage:
-            'url("https://wallpaperaccess.com/full/2268597.jpg")',
+          // backgroundImage:
+          //   'url("https://wallpaperaccess.com/full/2268597.jpg")',
           // backgroundSize: "100% 100%", // Stretch to cover entire container
           backgroundRepeat: "no-repeat",
           display: "flex",

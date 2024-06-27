@@ -19,20 +19,31 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     // Store email and password in local storage (not secure for production)
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
-
-    // Redirect to the dashboard page
     router.push("/dashboard");
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container
+        component="main"
+        sx={{
+          backgroundImage:
+            'url("https://wallpaperaccess.com/full/2268597.jpg")',
+          // backgroundSize: "100% 100%", // Stretch to cover entire container
+          backgroundRepeat: "no-repeat",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          height: "100vh", // Adjust height as needed
+          // objectFit: "cover",
+        }}
+      >
         <CssBaseline />
         <Box
           sx={{
@@ -40,6 +51,9 @@ const Login = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            backgroundColor: "rgba(255, 255, 255, 0.7)", // Add a semi-transparent white background for better readability
+            padding: "20px",
+            borderRadius: "10px",
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>

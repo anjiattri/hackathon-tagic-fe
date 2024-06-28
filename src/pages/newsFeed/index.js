@@ -35,71 +35,144 @@ const NewsFeed = () => {
       let dummy = [
         {
           source: {
+            id: "the-times-of-india",
+            name: "The Times of India",
+          },
+          author: "ETMarkets.com",
+          title:
+            "Sensex extends record rally to 3rd session, ends above 79K, Nifty tops 24,000 - The Economic Times",
+          description:
+            "Heavyweights RIL, HDFC Bank, and ICICI Bank were among the biggest contributors to Nifty's rise. Sectorally, buying was noticed in banks, FMCG, metals, and pharma. For Nifty50, the latest 1,000-point gain from 23,000 to 24,000 has been the 2nd fastest ever. N…",
+          url: "https://economictimes.indiatimes.com/markets/stocks/news/nifty-nearing-24000-milestone-after-4-day-rally-sensex-crosses-79000/articleshow/111303115.cms",
+          urlToImage:
+            "https://img.etimg.com/thumb/msid-111303057,width-1200,height-630,imgsize-96960,overlay-etmarkets/photo.jpg",
+          publishedAt: "2024-06-27T10:48:28Z",
+          content:
+            "The domestic equity market on Thursday rallied for the fourth consecutive day amid buying in heavyweight bluechips, which took Nifty past the 24,000 milestone. Sensex also touched a new record high a… [+3150 chars]",
+        },
+        {
+          source: {
+            id: null,
+            name: "Moneycontrol",
+          },
+          author: "Moneycontrol News",
+          title:
+            "Banks continue to post robust credit growth, asset quality improves, says RBI’s Financial Stability... - Moneycontrol",
+          description:
+            "Asset quality of the banks has continued to improve, said the FSR report",
+          url: "https://www.moneycontrol.com/news/business/banks-continue-to-post-robust-credit-growth-asset-quality-improves-says-rbis-financial-stability-report-12757522.html",
+          urlToImage:
+            "https://images.moneycontrol.com/static-mcnews/2023/03/big-to-fail-banks_pic.jpg",
+          publishedAt: "2024-06-27T10:36:12Z",
+          content:
+            "Indian scheduled commercial banks (SCBs) continue to report robust credit growth and asset quality of the banks also continue to improve, the Reserve Bank of Indias (RBI) Financial Stability Report (… [+675 chars]",
+        },
+        {
+          source: {
+            id: null,
+            name: "Moneycontrol",
+          },
+          author: "Hiral Thanawala",
+          title:
+            "HDFC Bank has revised terms for credit cards: Here are the key changes - Moneycontrol",
+          description:
+            "One significant takeaway from the revised terms is that HDFC Bank credit cardholders should henceforth avoid rental and educational transaction payments through third-party apps and platforms to reduce the burden of additional charges.",
+          url: "https://www.moneycontrol.com/news/business/personal-finance/hdfc-bank-has-revised-terms-for-credit-cards-here-are-the-key-changes-12757377.html",
+          urlToImage:
+            "https://images.moneycontrol.com/static-mcnews/2021/12/bank_cards_banking_financial-services1-2.jpg",
+          publishedAt: "2024-06-27T09:48:29Z",
+          content:
+            "HDFC Bank is back with more revised terms for its credit card portfolio, effective August 1. These revised terms are in line with those of other banks, which have introduced charges on rental and edu… [+4556 chars]",
+        },
+        {
+          source: {
+            id: null,
+            name: "Benzinga",
+          },
+          author: "Utkarsh Roshan",
+          title:
+            "RVNL Receives LoA For ₹72 Cr Order From North Central Railways - Benzinga India",
+          description:
+            "The company was declared the lowest bidder for this order in May. The ₹72.73 crore order is expected to be completed in 455 days.",
+          url: "https://in.benzinga.com/content/39518882/rvnl-receives-loa-for-72-cr-order-from-north-central-railways",
+          urlToImage:
+            "https://cdn.benzinga.com/files/images/story/2024/06/27/railway-train.png?width=1200&height=800&fit=crop",
+          publishedAt: "2024-06-27T09:01:05Z",
+          content: null,
+        },
+        {
+          source: {
+            id: "google-news",
+            name: "Google News",
+          },
+          author: "FXStreet",
+          title: "Gold bounces off $2,300 as traders take profit - FXStreet",
+          description: null,
+          url: "https://news.google.com/rss/articles/CBMiW2h0dHBzOi8vd3d3LmZ4c3RyZWV0LmNvbS9uZXdzL2dvbGQtYm91bmNlcy1vZmYtMi0zMDAtYWZ0ZXItdHJhZGVycy10YWtlLXByb2ZpdC0yMDI0MDYyNzA4NTPSAV9odHRwczovL3d3dy5meHN0cmVldC5jb20vYW1wL25ld3MvZ29sZC1ib3VuY2VzLW9mZi0yLTMwMC1hZnRlci10cmFkZXJzLXRha2UtcHJvZml0LTIwMjQwNjI3MDg1Mw?oc=5",
+          urlToImage: null,
+          publishedAt: "2024-06-27T08:53:30Z",
+          content: null,
+        },
+        {
+          source: {
+            id: "google-news",
+            name: "Google News",
+          },
+          author: "MotorOctane",
+          title: "Exciting Tata Nexon Launch Confirmed! - MotorOctane",
+          description: null,
+          url: "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vbW90b3JvY3RhbmUuY29tL25ld3MvMjc1MDU5LWV4Y2l0aW5nLXRhdGEtbmV4b24tbGF1bmNoLWNvbmZpcm1lZNIBSGh0dHBzOi8vbW90b3JvY3RhbmUuY29tL25ld3MvMjc1MDU5LWV4Y2l0aW5nLXRhdGEtbmV4b24tbGF1bmNoLWNvbmZpcm1lZA?oc=5",
+          urlToImage: null,
+          publishedAt: "2024-06-27T08:36:59Z",
+          content: null,
+        },
+        {
+          source: {
+            id: "the-times-of-india",
+            name: "The Times of India",
+          },
+          author: "Nishtha Awasthi",
+          title:
+            "Titagarh Rail shares rally 17% in 2 days as BlackRock buys over 9 lakh shares - The Economic Times",
+          description:
+            "RVNL's stock surged by 3% on BSE following the KRDCL-RVNL JV securing a project worth Rs 156.47 crore from Southern Railway, showcasing a positive trend in the railway sector.",
+          url: "https://economictimes.indiatimes.com/markets/stocks/news/titagarh-rail-shares-rally-17-in-2-days-as-blackrock-buys-over-9-lakh-shares/articleshow/111308483.cms",
+          urlToImage:
+            "https://img.etimg.com/thumb/msid-111308356,width-1200,height-630,imgsize-12650,overlay-etmarkets/photo.jpg",
+          publishedAt: "2024-06-27T08:04:31Z",
+          content:
+            "Shares of Kolkata-based private railway stock Titagarh Rail Systems have rallied 17% in the last 2 days on BSE to its new all-time high of Rs 1,896.50 as BlackRock Global Emerging Markets Fund bought… [+1774 chars]",
+        },
+        {
+          source: {
+            id: null,
+            name: "Cardekho.com",
+          },
+          author: "CarDekho",
+          title:
+            "Tata Altroz Racer Beats The Hyundai i20 N Line And Maruti Fronx On A Track - CarDekho",
+          description: null,
+          url: "https://www.cardekho.com/india-car-news/tata-altroz-racer-beats-the-hyundai-i20-n-line-and-maruti-fronx-on-a-track-32731.htm",
+          urlToImage: null,
+          publishedAt: "2024-06-27T07:51:00Z",
+          content: null,
+        },
+        {
+          source: {
             id: null,
             name: "CNBCTV18",
           },
-          author: "https://www.cnbctv18.com",
+          author: "Meghna Sen",
           title:
-            "InCred forecasts Indian steel spreads will slip in the June quarter, sees boost for pellet makers - CNBCTV18",
+            "IREDA shares may rally to ₹250 after a 540% surge from IPO price, as per this analyst - CNBCTV18",
           description:
-            "InCred predicted pellet makers stocks to surge, listing NMDC as its top pick. The firm has given a buy rating to the stocks of the company, which is also India's largest iron ore producer.",
-          url: "https://www.cnbctv18.com/market/incred-forecasts-indian-steel-spreads-will-slip-in-june-quarter-sees-boost-for-pellet-makers-19433906.htm",
+            "Technical Analyst Rajesh Satpute believes IREDA will establish a range between ₹200 to ₹215 and eventually move towards ₹250 within the next eight months to a year.",
+          url: "https://www.cnbctv18.com/market/ireda-share-price-may-rally-to-rs-250-after-a-17-times-surge-from-ipo-price-2024-returns-psu-stock-19434540.htm",
           urlToImage:
-            "https://images.cnbctv18.com/uploads/2023/04/earnings-shutterstock.jpg?im=FitAndFill,width=500,height=300",
-          publishedAt: "2024-06-26T08:48:01Z",
+            "https://images.cnbctv18.com/uploads/2022/12/buy-sell.jpg?im=FitAndFill,width=500,height=300",
+          publishedAt: "2024-06-27T07:49:53Z",
           content:
-            "Analyst firm InCred has forecast a further decline in the Indian domestic steel spreads during the first quarter of FY25 in comparison to the year-ago period. InCred said the profit after tax (PAT) f… [+1541 chars]",
-        },
-        {
-          source: {
-            id: "the-times-of-india",
-            name: "The Times of India",
-          },
-          author: "Shivendra Kumar",
-          title:
-            "ITC, Bharti Airtel’s weight may go up in Nifty rejig. $95 million passive inflows expected - The Economic Times",
-          description:
-            "ITC and Bharti Airtels weights in Nifty is expected to go up in the quarterly rejig which gets into effect on Thursday, triggering combined inflows of $95 million according to estimates by Nuvama.",
-          url: "https://economictimes.indiatimes.com/markets/stocks/news/itc-bharti-airtels-weight-may-go-up-in-nifty-rejig-95-million-passive-inflows-expected/articleshow/111283585.cms",
-          urlToImage:
-            "https://img.etimg.com/thumb/msid-111283577,width-1200,height-630,imgsize-14900,overlay-etmarkets/photo.jpg",
-          publishedAt: "2024-06-26T09:29:58Z",
-          content:
-            "ITC and Bharti Airtels weights in Nifty is expected to go up in the quarterly rejig which gets into effect on Thursday, triggering combined inflows of $95 million according to estimates by Nuvama. In… [+2026 chars]",
-        },
-        {
-          source: {
-            id: "the-times-of-india",
-            name: "The Times of India",
-          },
-          author: "Shivendra Kumar",
-          title:
-            "ITC, Bharti Airtel’s weight may go up in Nifty rejig. $95 million passive inflows expected - The Economic Times",
-          description:
-            "ITC and Bharti Airtels weights in Nifty is expected to go up in the quarterly rejig which gets into effect on Thursday, triggering combined inflows of $95 million according to estimates by Nuvama.",
-          url: "https://economictimes.indiatimes.com/markets/stocks/news/itc-bharti-airtels-weight-may-go-up-in-nifty-rejig-95-million-passive-inflows-expected/articleshow/111283585.cms",
-          urlToImage:
-            "https://img.etimg.com/thumb/msid-111283577,width-1200,height-630,imgsize-14900,overlay-etmarkets/photo.jpg",
-          publishedAt: "2024-06-26T09:29:58Z",
-          content:
-            "ITC and Bharti Airtels weights in Nifty is expected to go up in the quarterly rejig which gets into effect on Thursday, triggering combined inflows of $95 million according to estimates by Nuvama. In… [+2026 chars]",
-        },
-        {
-          source: {
-            id: "the-times-of-india",
-            name: "The Times of India",
-          },
-          author: "Shivendra Kumar",
-          title:
-            "ITC, Bharti Airtel’s weight may go up in Nifty rejig. $95 million passive inflows expected - The Economic Times",
-          description:
-            "ITC and Bharti Airtels weights in Nifty is expected to go up in the quarterly rejig which gets into effect on Thursday, triggering combined inflows of $95 million according to estimates by Nuvama.",
-          url: "https://economictimes.indiatimes.com/markets/stocks/news/itc-bharti-airtels-weight-may-go-up-in-nifty-rejig-95-million-passive-inflows-expected/articleshow/111283585.cms",
-          urlToImage:
-            "https://img.etimg.com/thumb/msid-111283577,width-1200,height-630,imgsize-14900,overlay-etmarkets/photo.jpg",
-          publishedAt: "2024-06-26T09:29:58Z",
-          content:
-            "ITC and Bharti Airtels weights in Nifty is expected to go up in the quarterly rejig which gets into effect on Thursday, triggering combined inflows of $95 million according to estimates by Nuvama. In… [+2026 chars]",
+            "Shares of IREDA or Indian Renewable Energy Development Agency Ltd. were trading with gains of 5% on Thursday, June 27. With today's move, the stock is up 540% from its IPO price.IREDA, a multi-bagger… [+1844 chars]",
         },
       ];
 
@@ -188,40 +261,39 @@ const NewsFeed = () => {
                           background: "rgba(0, 0, 0, 0.6)",
                           color: "#ffffff",
                           padding: (theme) => theme.spacing(2),
+                          boxSizing: "border-box",
                         }}
                       >
                         <Typography
                           gutterBottom
                           variant="h5"
                           component="div"
-                          sx={{ fontWeight: "bold" }}
+                          sx={{
+                            fontWeight: "bold",
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
                         >
                           {article.title}
                         </Typography>
-                        <Typography variant="body2" color="inherit">
+                        <Typography
+                          variant="body2"
+                          color="inherit"
+                          sx={{
+                            maxHeight: "4em",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
+                        >
                           {article.description}
                         </Typography>
-                        {/* 
-                        <Typography variant="body2" color="inherit">
-                          {trimDescription(article.description, 150)}
-                          {article.description.length > 150 && (
-                            <span
-                              style={{
-                                cursor: "pointer",
-                                textDecoration: "underline",
-                                marginLeft: "4px",
-                              }}
-                            >
-                              See more
-                            </span>
-                          )}
-                        </Typography> */}
+
                         <Box
                           sx={{
                             display: "flex",
                             justifyContent: "flex-end",
                             marginTop: 2,
-                            marginRight: 2,
                           }}
                         >
                           <IconButton aria-label="chat" sx={{ color: "#fff" }}>

@@ -35,15 +35,11 @@ const Login = () => {
       <Box
         component="main"
         sx={{
-          // backgroundImage:
-          //   'url("https://wallpaperaccess.com/full/2268597.jpg")',
-          // backgroundSize: "100% 100%", // Stretch to cover entire container
           backgroundRepeat: "no-repeat",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          height: "100vh", // Adjust height as needed
-          // objectFit: "cover",
+          height: "100vh",
         }}
       >
         <CssBaseline />
@@ -53,7 +49,6 @@ const Login = () => {
             sx={{
               width: "50%",
               height: "100%",
-              // background: "linear-gradient(to right, #000, #fff)",
             }}
           >
             <Box

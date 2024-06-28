@@ -9,7 +9,6 @@ import {
   Typography,
 } from "@mui/material";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-// import axiosInstance from "@/axios";
 import URLS from "@/helpers/urls";
 
 const Carousel = () => {
@@ -154,11 +153,7 @@ const Carousel = () => {
         <Grid container spacing={4}>
           {getVisibleArticles().map((article, index) => (
             <Grid item key={index} xs={4} sm={4} md={4}>
-              <Card
-              // sx={{
-              //   borderRadius: "20%",
-              // }}
-              >
+              <Card>
                 {article.urlToImage && (
                   <CardMedia
                     component="img"

@@ -154,7 +154,11 @@ const Carousel = () => {
         <Grid container spacing={4}>
           {getVisibleArticles().map((article, index) => (
             <Grid item key={index} xs={4} sm={4} md={4}>
-              <Card>
+              <Card
+                sx={{
+                  borderRadius: "20%",
+                }}
+              >
                 {article.urlToImage && (
                   <CardMedia
                     component="img"

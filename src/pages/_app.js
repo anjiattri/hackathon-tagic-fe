@@ -26,16 +26,11 @@ const MyApp = ({ Component, pageProps }) => {
     <ThemeProvider theme={theme}>
       <Box
         sx={{
-          backgroundImage:
-            'url("https://wallpaperaccess.com/full/2268597.jpg")',
-          backgroundAttachment: "fixed",
-
-          // background: "linear-gradient(to right bottom, #430089, #82ffa1)",
-          // backgroundRepeat: "no-repeat",
+          background: "linear-gradient(to right, #ffffff, #000)", // White to red gradient
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          height: "100%",
+          height: "100vh", // Full viewport height
         }}
       >
         <Component {...pageProps} />

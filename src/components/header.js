@@ -27,12 +27,11 @@ const Header = () => {
     <AppBar
       position="static"
       sx={{
-        backgroundImage: `url("https://tse1.mm.bing.net/th?id=OIP.7QF3J3JCwVcEsOHjIY-WHQHaEK&pid=Api&P=0&h=220")`,
+        // backgroundImage: `url("https://tse1.mm.bing.net/th?id=OIP.7QF3J3JCwVcEsOHjIY-WHQHaEK&pid=Api&P=0&h=220")`,
         backgroundSize: "cover",
         color: "#fff", // White text color
         boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
-        borderRadius: 2,
-        margin: 1,
+        backgroundColor: "#000",
         transition: "all 0.3s ease-in-out",
       }}
     >

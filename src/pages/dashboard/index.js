@@ -5,6 +5,8 @@ import {
   CardMedia,
   Chip,
   Grid,
+  MenuItem,
+  Select,
   TextField,
   Typography,
 } from "@mui/material";
@@ -15,7 +17,7 @@ const Dashboard = () => {
   const [points, setPoints] = useState(20);
   const [searchValue, setSearchValue] = useState([]);
   const [search, setSearch] = useState("");
-  const [duration, setDuration] = useState("");
+  const [duration, setDuration] = useState(1);
   const [time, setTime] = useState("");
 
   const handleSearchClick = () => {
@@ -51,7 +53,6 @@ const Dashboard = () => {
 
   const handleChipClick = (tag) => {
     // Handle chip click logic here
-    console.log(`Clicked on tag: ${tag}`);
   };
   const handleKeyDown = () => {
     if (event.key === "Enter") {
@@ -71,7 +72,7 @@ const Dashboard = () => {
           sx={{
             width: "50%",
             p: 3,
-            background: "linear-gradient(to right, #000, #fff)",
+            background: "linear-gradient(to right, #000, #233333)",
           }}
         >
           <Box
@@ -188,35 +189,43 @@ const Dashboard = () => {
 
               <Grid container sx={{ my: 2 }} spacing={2}>
                 <Grid item xs={6}>
-                  <TextField
+                  <Typography sx={{ color: "#fff", mb: 1 }}>
+                    Select duration for Subscription
+                  </Typography>
+                  <Select
+                    labelId="duration-label"
+                    id="duration"
                     value={duration}
+                    onChange={(e) => {
+                      setDuration(e.target.value);
+                    }}
                     fullWidth
-                    onChange={(e) => setDuration(e.target.value)}
-                    id="outlined-basic"
                     label="Duration"
-                    InputProps={{
-                      sx: {
-                        "& fieldset": {
-                          borderColor: "white",
-                        },
-                        "&:hover fieldset": {
-                          borderColor: "white",
-                        },
-                        "&.Mui-focused fieldset": {
-                          borderColor: "white",
-                        },
-                        color: "white",
+                    sx={{
+                      color: "white",
+                      ".MuiOutlinedInput-notchedOutline": {
+                        borderColor: "white",
+                      },
+                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "white",
+                      },
+                      "&:hover .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "white",
+                      },
+                      ".MuiSvgIcon-root ": {
+                        fill: "white !important",
                       },
                     }}
-                    InputLabelProps={{
-                      sx: {
-                        color: "white",
-                      },
-                    }}
-                    variant="outlined"
-                  />
+                  >
+                    <MenuItem value="1">1 month</MenuItem>
+                    <MenuItem value="3">3 months</MenuItem>
+                    <MenuItem value="6">6 months</MenuItem>
+                  </Select>
                 </Grid>
                 <Grid item xs={6}>
+                  <Typography sx={{ color: "#fff", mb: 1 }}>
+                    Time at which you want mails
+                  </Typography>
                   <TextField
                     value={time}
                     fullWidth
@@ -249,7 +258,6 @@ const Dashboard = () => {
               <Grid container sx={{ mt: "3rem" }}>
                 <Grid item xs={12}>
                   <Button
-                    onClick={handleSearchClick}
                     fullWidth
                     style={{
                       borderRadius: 20,
@@ -258,6 +266,7 @@ const Dashboard = () => {
                       fontSize: "18px",
                     }}
                     variant="contained"
+                    disabled={searchValue.length === 0}
                   >
                     Submit
                   </Button>
@@ -277,7 +286,7 @@ const Dashboard = () => {
             component="img"
             height="100%"
             image={
-              "https://static.wingify.com/gcp/uploads/sites/3/2023/07/Feature-image_Driving-Business-Success-With-Customer-Engagement_-Why-Is-It-Important-and-What-Are-the-Benefits_-1.png"
+              "https://img.freepik.com/free-vector/brand-loyalty-concept-illustration_114360-11553.jpg?size=626&ext=jpg&ga=GA1.1.1933058075.1719570426&semt=ais_user"
             }
             alt={"image"}
           />

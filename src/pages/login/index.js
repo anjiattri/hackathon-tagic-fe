@@ -8,9 +8,11 @@ import {
   Button,
   Avatar,
   CssBaseline,
+  CardMedia,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import * as Components from "../../components/input";
 
 const theme = createTheme();
 
@@ -45,61 +47,74 @@ const Login = () => {
         }}
       >
         <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            backgroundColor: "rgba(255, 255, 255, 0.7)", // Add a semi-transparent white background for better readability
-            padding: "20px",
-            borderRadius: "10px",
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
+
+        <Box sx={{ width: "100%", display: "flex" }}>
           <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
+            sx={{
+              width: "50%",
+              height: "100%",
+              // background: "linear-gradient(to right, #000, #fff)",
+            }}
           >
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+            <Box
+              sx={{
+                marginTop: 8,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                padding: "20px",
+                borderRadius: "10px",
+              }}
             >
-              Sign In
-            </Button>
+              <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography component="h1" variant="h4">
+                Sign in
+              </Typography>
+              <Box
+                component="form"
+                onSubmit={handleSubmit}
+                noValidate
+                sx={{ mt: 1 }}
+              >
+                <Components.Input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email"
+                />
+                <Components.Input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Password"
+                />
+
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2, p: 1, backgroundColor: "#ff4b2b" }}
+                >
+                  Sign In
+                </Button>
+              </Box>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              width: "50%",
+            }}
+          >
+            <CardMedia
+              component="img"
+              height="100%"
+              image={
+                "https://img.freepik.com/free-vector/tablet-login-concept-illustration_114360-7863.jpg?w=740&t=st=1719570495~exp=1719571095~hmac=4f2684c1da62ad2f35a052163dbaf8c1b31bab57535a6cf873b4203caf8692d9"
+              }
+              alt={"image"}
+            />
           </Box>
         </Box>
       </Box>

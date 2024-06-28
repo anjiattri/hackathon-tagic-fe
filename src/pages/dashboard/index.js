@@ -81,7 +81,6 @@ const Dashboard = () => {
             <Grid item xs={2}>
               <Button
                 variant="contained"
-                sx={{ borderRadius: "10%" }}
                 onClick={search ? handleSearchClick : () => {}}
               >
                 <AddIcon /> Add
